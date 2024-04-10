@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZKLDotNetCore.ConsoleApp", "ZKLDotNetCore.ConsoleApp\ZKLDotNetCore.ConsoleApp.csproj", "{CECF5ADB-ED01-4710-9215-190A66EED800}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CECF5ADB-ED01-4710-9215-190A66EED800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECF5ADB-ED01-4710-9215-190A66EED800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECF5ADB-ED01-4710-9215-190A66EED800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECF5ADB-ED01-4710-9215-190A66EED800}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {334BE6BB-B414-4154-9F96-AC6B8BCF4802}
+	EndGlobalSection
+EndGlobal
