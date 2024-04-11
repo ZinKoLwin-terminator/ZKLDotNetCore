@@ -18,8 +18,11 @@ Console.WriteLine("Hello,World");
 
 AdoDotNetExamples adoDotNetExamples = new AdoDotNetExamples();
 
-adoDotNetExamples.Create("title", "author", "content");
+//adoDotNetExamples.Create("title", "author", "content");
+//adoDotNetExamples.Update(22, "test title", "test author", "test content");
+//adoDotNetExamples.Delete(21);
 
-adoDotNetExamples.Read();
+//adoDotNetExamples.Read();
+adoDotNetExamples.Edit(10);
 
 Console.ReadLine();
