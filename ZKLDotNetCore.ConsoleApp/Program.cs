@@ -16,13 +16,17 @@ Console.WriteLine("Hello,World");
 
 
 
-AdoDotNetExamples adoDotNetExamples = new AdoDotNetExamples();
+//AdoDotNetExamples adoDotNetExamples = new AdoDotNetExamples();
 
 //adoDotNetExamples.Create("title", "author", "content");
-//adoDotNetExamples.Update(22, "test title", "test author", "test content");
-//adoDotNetExamples.Delete(21);
+//adoDotNetExamples.Update(1, "test title1", "test author1", "test content1");
+//adoDotNetExamples.Delete(24);
 
 //adoDotNetExamples.Read();
-adoDotNetExamples.Edit(10);
+//adoDotNetExamples.Edit(1);
+
+//adoDotNetExamples.Create("new title", "new author", "new content");
+DapperExample dapper = new DapperExample();
+dapper.Run();
 
 Console.ReadLine();

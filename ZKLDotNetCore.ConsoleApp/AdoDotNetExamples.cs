@@ -12,46 +12,48 @@ namespace ZKLDotNetCore.ConsoleApp
     internal class AdoDotNetExamples
 
     {
-       private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder = new
-            SqlConnectionStringBuilder()
-       {
-           DataSource = ".",
-           //ServerName
-           InitialCatalog = "ZKLDotNetCore",
-           UserID = "sa",
-           Password = "sasa@123",
-       };
+
+        private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+        {
+            DataSource = ".",
+            //ServerName
+            InitialCatalog = "ZKLDotNetCore",
+            UserID = "sa",
+            Password = "sasa@123",
+        };
 
         public void Read()
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+
             connection.Open();
-            Console.WriteLine("open connection");
+            Console.WriteLine("open Connection");
+
             string query = "select * from tbl_blog";
+
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dt=new DataTable();
+            DataTable dt = new DataTable();
+
             adapter.Fill(dt);
             connection.Close();
-
-            Console.WriteLine("close");
+            Console.WriteLine("connection close");
 
             foreach (DataRow dr in dt.Rows)
             {
-                Console.WriteLine("Blog Id:" + dr["BlogId"]);
+                Console.WriteLine("BlogId:" + dr["BlogId"]);
                 Console.WriteLine("Blog Title:" + dr["BlogTitle"]);
-
                 Console.WriteLine("Blog Author:" + dr["BlogAuthor"]);
                 Console.WriteLine("Blog Content:" + dr["BlogContent"]);
-                Console.WriteLine(".............................");
+
+                Console.WriteLine("...............");
             }
         }
-
         public void Edit(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
-            Console.WriteLine("open connection");
+            Console.WriteLine();
             string query = "select * from tbl_blog where BlogId=@BlogId";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@BlogId", id);
@@ -59,31 +61,29 @@ namespace ZKLDotNetCore.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             connection.Close();
-
             Console.WriteLine("close");
 
-            if (dt.Rows.Count==0)
+            if (dt.Rows
+                .Count < 0)
             {
-                Console.WriteLine("NO Data Fount!");
-                return;
+                Console.WriteLine("No Data Found");
             }
-
             foreach (DataRow dr in dt.Rows)
             {
-                Console.WriteLine("Blog Id:" + dr["BlogId"]);
+                Console.WriteLine("BlogId:" + dr["BlogId"]);
                 Console.WriteLine("Blog Title:" + dr["BlogTitle"]);
-
                 Console.WriteLine("Blog Author:" + dr["BlogAuthor"]);
                 Console.WriteLine("Blog Content:" + dr["BlogContent"]);
-                Console.WriteLine(".............................");
+
+                Console.WriteLine("...............");
             }
         }
 
-
-        public void Create(string title,string author,string content)
+        public void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
+            Console.WriteLine("Connection open");
             string query = @"INSERT INTO [dbo].[tbl_blog]
            ([BlogTitle]
            ,[BlogAuthor]
@@ -92,7 +92,8 @@ namespace ZKLDotNetCore.ConsoleApp
            (@BlogTitle,
 		   @BlogAuthor,
 		   @BlogContent)";
-            SqlCommand command = new SqlCommand(query,connection);
+
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@BlogTitle", title);
             command.Parameters.AddWithValue("@BlogAuthor", author);
             command.Parameters.AddWithValue("@BlogContent", content);
@@ -100,10 +101,12 @@ namespace ZKLDotNetCore.ConsoleApp
             int result = command.ExecuteNonQuery();
             connection.Close();
 
-            string message = result > 0 ? "Saving Successfully." : "Saving Failed";
+            string message = result > 0 ? "Saving successfully" : "Saving Fail";
             Console.WriteLine(message);
+
         }
-        public void Update(int id,string title, string author, string content)
+
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -112,19 +115,17 @@ namespace ZKLDotNetCore.ConsoleApp
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
  WHERE BlogId=@BlogId";
+
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@BlogId", id);
             command.Parameters.AddWithValue("@BlogTitle", title);
             command.Parameters.AddWithValue("@BlogAuthor", author);
             command.Parameters.AddWithValue("@BlogContent", content);
-
             int result = command.ExecuteNonQuery();
             connection.Close();
 
-            string message = result > 0 ? "Update Successfully." : "Update Failed";
-            Console.WriteLine(message);
+            string message = result > 0 ? "Update successfully" : "update fail";
         }
-
         public void Delete(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
@@ -133,7 +134,7 @@ namespace ZKLDotNetCore.ConsoleApp
       WHERE BlogId=@BlogId";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@BlogId", id);
-           
+
 
             int result = command.ExecuteNonQuery();
             connection.Close();
