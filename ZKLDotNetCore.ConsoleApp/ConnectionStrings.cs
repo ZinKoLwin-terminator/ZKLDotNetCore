@@ -16,6 +16,7 @@ namespace ZKLDotNetCore.ConsoleApp
             InitialCatalog = "ZKLDotNetCore",
             UserID = "sa",
             Password = "sasa@123",
+            TrustServerCertificate=true,
         };
     }
 }

@@ -26,7 +26,10 @@ Console.WriteLine("Hello,World");
 //adoDotNetExamples.Edit(1);
 
 //adoDotNetExamples.Create("new title", "new author", "new content");
-DapperExample dapper = new DapperExample();
-dapper.Run();
+//DapperExample dapper = new DapperExample();
+//dapper.Run();
+
+EFCoreExample efcore=new EFCoreExample();
+efcore.Run();
 
 Console.ReadLine();
