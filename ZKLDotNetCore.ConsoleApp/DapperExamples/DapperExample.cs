@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection.Metadata;
+using ZKLDotNetCore.ConsoleApp.Dots;
+using ZKLDotNetCore.ConsoleApp.Services;
 
-namespace ZKLDotNetCore.ConsoleApp
+namespace ZKLDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
@@ -41,12 +43,12 @@ namespace ZKLDotNetCore.ConsoleApp
         private void Edit(int id)
         {
             using IDbConnection db = new SqlConnection(ConnectionStrings.sqlConnectionStringBuilder.ConnectionString);
-          var item =  db.Query<BlogDto>("select * from tbl_blog where blogId = @blogId",new BlogDto { BlogId=id}).FirstOrDefault();
+            var item = db.Query<BlogDto>("select * from tbl_blog where blogId = @blogId", new BlogDto { BlogId = id }).FirstOrDefault();
             if (item is null)
             {
                 Console.WriteLine("NO data found");
                 return;
-                
+
             }
             Console.WriteLine(item.BlogId);
             Console.WriteLine(item.BlogTitle);
@@ -55,7 +57,7 @@ namespace ZKLDotNetCore.ConsoleApp
 
 
         }
-        private void Create(string title,string author,string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -83,10 +85,11 @@ namespace ZKLDotNetCore.ConsoleApp
 
         }
 
-        private void Update(int id,string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = new BlogDto
-            {   BlogId= id, 
+            {
+                BlogId = id,
                 BlogTitle = title,
                 BlogAuthor = author,
                 BlogContent = content,
@@ -109,7 +112,7 @@ namespace ZKLDotNetCore.ConsoleApp
         }
         private void Delete(int id)
         {
-            var item=new BlogDto { BlogId= id };
+            var item = new BlogDto { BlogId = id };
 
             string query = @"DELETE FROM [dbo].[tbl_blog]
       WHERE BlogId=@BlogId";

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZKLDotNetCore.ConsoleApp.Dots;
 
-namespace ZKLDotNetCore.ConsoleApp
+namespace ZKLDotNetCore.ConsoleApp.EfCoreExamples
 {
     internal class EFCoreExample
     {
@@ -21,7 +22,7 @@ namespace ZKLDotNetCore.ConsoleApp
 
         private void Read()
         {
-            
+
             var list = db.Blogs.ToList();
 
             foreach (BlogDto blog in list)
@@ -36,7 +37,7 @@ namespace ZKLDotNetCore.ConsoleApp
 
         private void Edit(int id)
         {
-            var item = db.Blogs.FirstOrDefault(x=>x.BlogId == id);
+            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
 
             if (item is null)
             {
@@ -50,7 +51,7 @@ namespace ZKLDotNetCore.ConsoleApp
             Console.WriteLine(item.BlogContent);
         }
 
-        private void Create(string title,string author,string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -66,13 +67,14 @@ namespace ZKLDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        private void Update(int id,string title,string author,string content)
+        private void Update(int id, string title, string author, string content)
         {
-            var item = db.Blogs.FirstOrDefault(x=>x.BlogId==id);    
-            if(item is null) {
+            var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
                 Console.WriteLine("No data found");
                 return;
-                    }
+            }
 
             item.BlogTitle = title;
             item.BlogAuthor = author;
@@ -84,7 +86,8 @@ namespace ZKLDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        private void Delete(int id) {
+        private void Delete(int id)
+        {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)
             {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZKLDotNetCore.ConsoleApp
+namespace ZKLDotNetCore.ConsoleApp.Services
 {
     public static class ConnectionStrings
     {
@@ -16,7 +16,7 @@ namespace ZKLDotNetCore.ConsoleApp
             InitialCatalog = "ZKLDotNetCore",
             UserID = "sa",
             Password = "sasa@123",
-            TrustServerCertificate=true,
+            TrustServerCertificate = true,
         };
     }
 }

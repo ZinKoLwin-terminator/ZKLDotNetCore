@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace ZKLDotNetCore.ConsoleApp
+namespace ZKLDotNetCore.ConsoleApp.AdoDotNetExamples
 {
-    internal class AdoDotNetExamples
+    internal class AdoDotNetExample
 
     {
 
@@ -144,5 +144,5 @@ namespace ZKLDotNetCore.ConsoleApp
         }
     }
 
-   
+
 }

@@ -2,7 +2,7 @@
 
 using System.Data;
 using System.Data.SqlClient;
-using ZKLDotNetCore.ConsoleApp;
+using ZKLDotNetCore.ConsoleApp.EfCoreExamples;
 
 Console.WriteLine("Hello,World");
 //npm
