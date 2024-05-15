@@ -33,4 +33,8 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ZKLDotNetCore.Shared\ZKLDotNetCore.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
